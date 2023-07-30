@@ -1,3 +1,1 @@
-# React Practices
-
-Various topics for React!
+# React TypeScript Hooks with Vite
