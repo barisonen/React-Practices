@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import './App.css';
 import { Counter } from './Counter';
+import { CounterProvider, initState } from './context/CounterContext';
 
 interface User {
   id: number;
@@ -48,7 +49,9 @@ function App() {
       <input ref={inputRef} type="text"></input>
       <h2>Input ref: {inputRef?.current?.value}</h2>
       <h6>Set a User to refresh the state to see the input ref</h6>
-      <Counter>{(num: number) => <>Current Count: {num}</>}</Counter>
+      <CounterProvider count={initState.count} text={initState.text}>
+        <Counter>{(num: number) => <>Current Count: {num}</>}</Counter>
+      </CounterProvider>
     </div>
   );
 }
